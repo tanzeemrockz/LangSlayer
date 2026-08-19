@@ -1,35 +1,222 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using @vitejs/plugin-react"
-    />
-    <link rel="apple-touch-icon" href="/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="/manifest.json" />
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LangSlayer | Slaying Hyper-Technical Jargon</title>
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 500 500%22><rect width=%22500%22 height=%22500%22 rx=%22100%22 fill=%22%23101E36%22/><g stroke-width=%2216%22 stroke-linecap=%22square%22><polygon points=%22250,110 360,180 360,320 250,390 140,320 140,180%22 stroke=%22%23FFFFFF%22/><path d=%22M 250 110 V 250 M 360 180 L 250 250 M 140 180 L 250 250%22 stroke=%22%2394A3B8%22 stroke-width=%2210%22/></g></svg>">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        paper: '#F7F6F0',
+                        card: '#FFFFFF',
+                        ink: '#101E36',
+                        subtle: '#64748B',
+                        line: '#E2E8F0',
+                        accent: '#2563EB',
+                        sig: '#101E36'
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['Space Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+    <style>
+        body {
+            background-color: #F7F6F0;
+            background-image: radial-gradient(#CBD5E1 0.75px, transparent 0.75px);
+            background-size: 16px 16px;
+            color: #101E36;
+        }
+        .glass-nav {
+            background: rgba(247, 246, 240, 0.9);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid #E2E8F0;
+        }
+    </style>
+</head>
+<body class="antialiased flex flex-col min-h-screen selection:bg-ink selection:text-white font-sans">
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
-  <script type="module" src="/src/index.jsx"></script>
+    <nav class="fixed w-full top-0 z-50 glass-nav">
+        <div class="max-w-5xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-3 group">
+                <svg class="w-8 h-8 transition-transform duration-500 group-hover:rotate-90" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="500" height="500" rx="100" fill="#101E36"/>
+                    <g stroke-width="16" stroke-linecap="square">
+                        <polygon points="250,110 360,180 360,320 250,390 140,320 140,180" stroke="#FFFFFF"/>
+                        <path d="M 250 110 V 250 M 360 180 L 250 250 M 140 180 L 250 250" stroke="#94A3B8" stroke-width="10"/>
+                    </g>
+                </svg>
+                <span class="font-extrabold text-lg tracking-wider text-ink uppercase">LANG<span class="text-subtle">SLAYER</span></span>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8 text-xs font-bold tracking-widest text-subtle uppercase">
+                <a href="#inspiration" class="hover:text-ink transition">Inspiration</a>
+                <a href="#how-it-works" class="hover:text-ink transition">Features</a>
+                <a href="#tech-stack" class="hover:text-ink transition">Architecture</a>
+                <a href="#next" class="hover:text-ink transition">Roadmap</a>
+                
+                <a href="/go/index.html" class="bg-ink text-white px-5 py-2.5 border border-ink hover:bg-transparent hover:text-ink transition shadow-sm">
+                    TRY NOW
+                </a>
+            </div>
+            
+            <div class="md:hidden flex items-center gap-3">
+                <a href="/go/index.html" class="text-xs font-bold bg-ink text-white px-4 py-2 border border-ink">TRY NOW</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="min-h-screen flex flex-col justify-center px-6 relative pt-24 text-center">
+        <div class="max-w-4xl mx-auto space-y-8">
+            <p class="text-xs font-semibold tracking-[0.3em] uppercase text-subtle">♦ JARGON SIMPLIFICATION FOR STUDENTS ♦</p>
+            
+            <h1 class="text-4xl md:text-6xl font-black tracking-tight leading-tight uppercase text-ink">
+                SLAYING HYPER-TECHNICAL JARGON INTO SIMPLE TERMS
+            </h1>
+            
+            <p class="text-base md:text-lg text-subtle max-w-2xl mx-auto leading-relaxed">
+                Converting dense academic research and complex textbook excerpts into concise summaries and real-world analogies for non-native English speakers.
+            </p>
+
+            <div class="flex items-center justify-center gap-3 text-subtle text-xs tracking-widest uppercase my-4">
+                <span>◆ ◆ ◆</span>
+            </div>
+            
+            <div>
+                <a href="/go/index.html" class="inline-block font-bold text-xs tracking-widest uppercase bg-ink text-white px-8 py-4 border border-ink hover:bg-transparent hover:text-ink transition shadow-sm">
+                    TRY NOW →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="inspiration" class="max-w-4xl mx-auto px-6 py-20">
+        <div class="border border-line bg-card p-8 md:p-12 shadow-sm space-y-6 relative">
+            <div class="text-center space-y-2">
+                <p class="text-xs font-semibold tracking-[0.2em] uppercase text-subtle">THE ORIGIN</p>
+                <p class="text-xs text-subtle">◇ ◆ ◇</p>
+                <h2 class="text-2xl md:text-4xl font-extrabold uppercase text-ink tracking-wide">INSPIRATION</h2>
+            </div>
+            
+            <div class="space-y-4 text-sm md:text-base leading-relaxed text-subtle">
+                <p>
+                    I looked at my friends <strong class="text-ink">struggling</strong> to understand concepts using textbooks. They needed somebody who could <strong class="text-ink">teach</strong> them concepts. Even to understand <em class="text-ink font-normal">simple concepts</em> like atomic structure, they <em class="text-ink font-normal">needed</em> someone to explain it because their English wasn't sufficient.
+                </p>
+                <p>
+                    In a country as large and diverse as India, English is a second language that most students just have to mug up. Most academic text lives strictly in English—yet when searching the internet for tools to fix this context-switching barrier, <strong class="text-ink">none existed</strong>. So, LangSlayer was built.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="max-w-4xl mx-auto px-6 py-20 space-y-12">
+        <div class="text-center space-y-2">
+            <p class="text-xs font-semibold tracking-[0.2em] uppercase text-subtle">WHAT IT DOES</p>
+            <p class="text-xs text-subtle">◇ ◆ ◇</p>
+            <h2 class="text-2xl md:text-4xl font-extrabold uppercase text-ink tracking-wide">SLAYING JARGON ACROSS THREE PILLARS</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="border border-line bg-card p-6 space-y-3 relative">
+                <div class="text-xs text-subtle font-mono">01.</div>
+                <h3 class="font-bold text-sm uppercase tracking-wider text-ink">2-Sentence Summaries</h3>
+                <p class="text-xs text-subtle leading-relaxed">
+                    Filters out administrative vocabulary and presents the exact core mechanism in two simple, readable sentences.
+                </p>
+            </div>
+
+            <div class="border border-line bg-card p-6 space-y-3 relative">
+                <div class="text-xs text-subtle font-mono">02.</div>
+                <h3 class="font-bold text-sm uppercase tracking-wider text-ink">Real-World Analogies</h3>
+                <p class="text-xs text-subtle leading-relaxed">
+                    Pairs theoretical mechanisms (like atomic electron shells or wave functions) with relatable everyday mental models.
+                </p>
+            </div>
+
+            <div class="border border-line bg-card p-6 space-y-3 relative">
+                <div class="text-xs text-subtle font-mono">03.</div>
+                <h3 class="font-bold text-sm uppercase tracking-wider text-ink">Instant Inference</h3>
+                <p class="text-xs text-subtle leading-relaxed">
+                    Uses high-speed open-source models through Groq API endpoints to give students immediate responses without wait times.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="tech-stack" class="max-w-4xl mx-auto px-6 py-20 space-y-8 border-t border-line">
+        <div class="text-center space-y-2">
+            <p class="text-xs font-semibold tracking-[0.2em] uppercase text-subtle">ARCHITECTURE</p>
+            <h2 class="text-2xl md:text-3xl font-extrabold uppercase text-ink tracking-wide">HOW WE BUILT IT</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-sans">
+            <div class="border border-line bg-card p-5 space-y-1">
+                <span class="font-bold uppercase text-ink">Frontend Shell</span>
+                <p class="text-subtle">Vite, Vanilla JavaScript, and HTML5 styled with Tailwind CSS for clean editorial readability.</p>
+            </div>
+            <div class="border border-line bg-card p-5 space-y-1">
+                <span class="font-bold uppercase text-ink">PWA Engine</span>
+                <p class="text-subtle">Web App Manifests and service worker logic allowing installation natively on mobile or desktop devices.</p>
+            </div>
+            <div class="border border-line bg-card p-5 space-y-1">
+                <span class="font-bold uppercase text-ink">AI Model Integration</span>
+                <p class="text-subtle">Open-source models (<code class="bg-paper px-1 py-0.5 border border-line">openai/gpt-oss-20b</code>) via Groq API using a BYOK model.</p>
+            </div>
+            <div class="border border-line bg-card p-5 space-y-1">
+                <span class="font-bold uppercase text-ink">Dynamic Rendering</span>
+                <p class="text-subtle">Integrated <code class="bg-paper px-1 py-0.5 border border-line">marked.js</code> to parse raw AI completions into clean HTML.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="next" class="max-w-4xl mx-auto px-6 py-20 space-y-8 border-t border-line">
+        <div class="text-center space-y-2">
+            <p class="text-xs font-semibold tracking-[0.2em] uppercase text-subtle">FUTURE ROADMAP</p>
+            <h2 class="text-2xl md:text-3xl font-extrabold uppercase text-ink tracking-wide">WHAT'S NEXT FOR LANGSLAYER</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+            <div class="border border-line bg-card p-5 space-y-2">
+                <span class="font-bold uppercase text-ink block">Interactive Glossary</span>
+                <p class="text-subtle leading-relaxed">Clickable technical terms with instant hover popups providing one-line definitions.</p>
+            </div>
+            <div class="border border-line bg-card p-5 space-y-2">
+                <span class="font-bold uppercase text-ink block">Preset Sample Chips</span>
+                <p class="text-subtle leading-relaxed">One-click test samples (AP Bio, Quantum Physics, Law) for instant evaluation.</p>
+            </div>
+            <div class="border border-line bg-card p-5 space-y-2">
+                <span class="font-bold uppercase text-ink block">Side-by-Side Translation</span>
+                <p class="text-subtle leading-relaxed">Displaying simplified English alongside optional regional language translations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-auto bg-card py-8 px-6 border-t border-line text-center text-xs text-subtle">
+        <div class="max-w-4xl mx-auto space-y-2">
+            <p>© 2026 LANGSLAYER — ALL RIGHTS RESERVED</p>
+            <p>
+                Made with ❤️ by <span class="text-ink font-bold">tanzeemrockz</span> | 
+                Operator: <a href="https://tanzeemrockz.github.io" target="_blank" class="text-ink underline underline-offset-2">CyberSlayerCorpz</a>
+            </p>
+        </div>
+    </footer>
+
+</body>
 </html>

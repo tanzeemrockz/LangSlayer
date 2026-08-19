@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LangSlayer | App</title>
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 500 500%22><rect width=%22500%22 height=%22500%22 rx=%22100%22 fill=%22%23101E36%22/><g stroke-width=%2216%22 stroke-linecap=%22square%22><polygon points=%22250,110 360,180 360,320 250,390 140,320 140,180%22 stroke=%22%23FFFFFF%22/><path d=%22M 250 110 V 250 M 360 180 L 250 250 M 140 180 L 250 250%22 stroke=%22%2394A3B8%22 stroke-width=%2210%22/></g></svg>">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        paper: '#F7F6F0',
+                        card: '#FFFFFF',
+                        ink: '#101E36',
+                        subtle: '#64748B',
+                        line: '#E2E8F0',
+                        accent: '#2563EB',
+                        sig: '#101E36'
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['Space Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #F7F6F0;
+            background-image: radial-gradient(#CBD5E1 0.75px, transparent 0.75px);
+            background-size: 16px 16px;
+            color: #101E36;
+        }
+        .glass-nav {
+            background: rgba(247, 246, 240, 0.9);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid #E2E8F0;
+        }
+    </style>
+</head>
+<body class="antialiased flex flex-col min-h-screen selection:bg-ink selection:text-white font-sans">
+
+    <nav class="fixed w-full top-0 z-50 glass-nav">
+        <div class="max-w-4xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-3 group">
+                <svg class="w-8 h-8 transition-transform duration-500 group-hover:rotate-90" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="500" height="500" rx="100" fill="#101E36"/>
+                    <g stroke-width="16" stroke-linecap="square">
+                        <polygon points="250,110 360,180 360,320 250,390 140,320 140,180" stroke="#FFFFFF"/>
+                        <path d="M 250 110 V 250 M 360 180 L 250 250 M 140 180 L 250 250" stroke="#94A3B8" stroke-width="10"/>
+                    </g>
+                </svg>
+                <span class="font-extrabold text-lg tracking-wider text-ink uppercase">LANG<span class="text-subtle">SLAYER</span></span>
+            </a>
+
+            <button id="open-key-modal" class="text-xs font-bold uppercase tracking-wider border border-ink bg-card text-ink hover:bg-ink hover:text-white px-4 py-2 transition shadow-sm">
+                🔑 <span id="key-btn-text">API KEY</span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl w-full mx-auto px-6 pt-28 pb-16 space-y-6 flex-1">
+        
+        <section class="border border-line bg-card p-6 md:p-8 space-y-6 shadow-sm">
+            
+            <div class="space-y-2">
+                <label class="block text-xs font-bold uppercase tracking-wider text-subtle">Test Samples</label>
+                <div class="flex flex-wrap gap-2">
+                    <button type="button" class="sample-btn border border-line bg-paper hover:border-ink text-xs font-semibold text-ink px-3 py-1.5 transition" data-sample="bio">🧬 AP Bio</button>
+                    <button type="button" class="sample-btn border border-line bg-paper hover:border-ink text-xs font-semibold text-ink px-3 py-1.5 transition" data-sample="physics">⚛️ Quantum Physics</button>
+                    <button type="button" class="sample-btn border border-line bg-paper hover:border-ink text-xs font-semibold text-ink px-3 py-1.5 transition" data-sample="law">⚖️ Law</button>
+                </div>
+            </div>
+
+            <div class="space-y-2">
+                <label for="input-text" class="block text-xs font-bold uppercase tracking-wider text-ink">Academic Text Input</label>
+                <textarea id="input-text" rows="5" class="w-full border border-line bg-white p-4 text-sm font-sans focus:outline-none focus:border-ink text-ink leading-relaxed" placeholder="Paste complex text here or select a sample above..."></textarea>
+            </div>
+
+            <button id="simplify-btn" class="w-full bg-ink text-white font-bold uppercase tracking-widest text-xs py-4 border border-ink hover:bg-transparent hover:text-ink transition shadow-sm">
+                SLAY JARGON →
+            </button>
+        </section>
+
+        <section id="output-section" class="border border-line bg-card p-6 md:p-8 space-y-4 shadow-sm">
+            <div class="flex items-center justify-between border-b border-line pb-3">
+                <h2 class="text-xs font-bold uppercase tracking-wider text-ink">
+                    Simplified Output
+                </h2>
+                <button id="copy-btn" class="text-xs border border-line bg-paper hover:border-ink text-ink px-3 py-1 transition">
+                    Copy
+                </button>
+            </div>
+            
+            <div id="output-container" class="text-ink text-sm leading-relaxed space-y-3 font-sans [&_strong]:font-bold [&_ul]:list-disc [&_ul]:ml-4 [&_p]:mb-2">
+                <span class="text-subtle italic">Result will appear here...</span>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="key-modal" class="fixed inset-0 bg-ink/40 backdrop-blur-sm z-50 hidden items-center justify-center p-6">
+        <div class="bg-card border border-line max-w-md w-full p-6 md:p-8 space-y-6 shadow-lg">
+            <div class="flex justify-between items-center border-b border-line pb-3">
+                <h3 class="font-bold text-ink text-sm uppercase tracking-wider">
+                    Groq API Key
+                </h3>
+                <button id="close-key-modal" class="text-subtle hover:text-ink text-base">✕</button>
+            </div>
+            <p class="text-xs text-subtle leading-relaxed">
+                Enter your Groq API key below. It will be stored locally in your browser session.
+            </p>
+            <input type="password" id="api-key" class="w-full border border-line bg-paper text-ink text-sm p-3 focus:outline-none focus:border-ink" placeholder="gsk_...">
+            <button id="save-key-btn" class="w-full bg-ink text-white text-xs font-bold uppercase tracking-widest py-3.5 border border-ink hover:bg-transparent hover:text-ink transition shadow-sm">
+                SAVE KEY
+            </button>
+        </div>
+    </div>
+
+    <footer class="bg-card py-6 px-6 border-t border-line text-center text-xs text-subtle">
+        <div class="max-w-4xl mx-auto space-y-2">
+            <p>© 2026 LANGSLAYER — ALL RIGHTS RESERVED</p>
+            <p>
+                Made with ❤️ by <span class="text-ink font-bold">tanzeemrockz</span> | 
+                Operator: <a href="https://tanzeemrockz.github.io" target="_blank" class="text-ink underline underline-offset-2">CyberSlayerCorpz</a>
+            </p>
+        </div>
+    </footer>
+
+    <script type="module" src="./main.js"></script>
+</body>
+</html>

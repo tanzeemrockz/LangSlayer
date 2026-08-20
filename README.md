@@ -20,6 +20,13 @@ In a country as large and diverse as India, English is a second language that mo
 
 ---
 
+## Mandatory AI & Dataset Disclosures
+* **AI Models Used:** Groq API running open-source models (`openai/gpt-oss-20b`).[cite: 1]
+* **AI Coding Assistants Used:** Gemini (used for UI scaffolding, CSS adjustments, prompt engineering, and documentation refining).
+* **Datasets Used:** None (built-in preset sample excerpts used for AP Biology, Quantum Physics, and Law).
+
+---
+
 ## Aesthetic & Design Language
 Inspired by the **Suvidha Hackathon** paper aesthetic:
 * **Typography:** Pure sans-serif typography utilizing **Plus Jakarta Sans** for modern headers and body text, accompanied by **Space Mono** for lightweight tags.

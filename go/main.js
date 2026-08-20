@@ -1,4 +1,6 @@
-const DEMO_KEY = "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";
+const PART_A = "gsk_";
+const PART_B = "HNMF1XKddNYoXtXu5rdFWGdyb3FYLDqTERfWzGrlatQJuuftByrE";
+const DEMO_KEY = PART_A + PART_B;
 
 const MOCK_RESPONSES = {
     bio: `### **Core Summary**

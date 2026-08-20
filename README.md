@@ -22,8 +22,11 @@ In a country as large and diverse as India, English is a second language that mo
 
 ## Aesthetic & Design Language
 Inspired by the **Suvidha Hackathon** paper aesthetic:
-* **Typography:** Pure sans-serif typography utilizing **Plus Jakarta Sans** for modern headers and body text (no serif fonts or heavy terminal monospace fonts).
+* **Typography:** Pure sans-serif typography utilizing **Plus Jakarta Sans** for modern headers and body text, accompanied by **Space Mono** for lightweight tags.
 * **Color Palette:** Warm off-white background canvas (`#F7F6F0`) with a subtle grid-dot pattern, clean slate-blue structural lines (`#E2E8F0`), and dark navy elements (`#101E36`).
+* **Interactive Micro-Animations:** 
+  * **Cursor Spotlight Aura:** A dynamic radial torch tracking mouse movements to highlight grid paper dots.
+  * **Floating Paper Cards:** Smooth cubic-bezier elevation animations (`translateY(-6px)`) when hovering over container blocks.
 * **UI Elements:** Editorial card layouts, minimalist button borders, diamond separators (`◇ ◆ ◇`), and lightweight sample chips for instant testing.
 
 ---
@@ -38,22 +41,22 @@ Inspired by the **Suvidha Hackathon** paper aesthetic:
 
 ## Challenges we ran into
 * **Aesthetic Alignment:** Moving away from a generic dark/cyberpunk look to construct a clean, warm editorial paper interface while maintaining crisp UI contrast.
+* **Smooth Physics & Cursor Tracking:** Implementing an ultra-lightweight cursor spotlight aura and hardware-accelerated float transitions without causing frame drops or layout shifts.
 * **Model Lifecycle Management:** Finding an active, stable open-source model endpoint on free-tier routes required testing multiple model strings and adapting to API deprecations.
-* **Markdown Formatting:** Ensuring raw text completions from the API rendered properly as rich HTML without introducing heavy framework dependencies or breaking layout responsiveness.
 
 ---
 
 ## Accomplishments that we're proud of
 * **Zero-Latency Feel:** Achieving rapid response times using Groq's high-speed inference engine, making jargon simplification feel almost instantaneous.
-* **Value-First UI:** Designing a dual-page system (`/` for story/landing, `/go` for workspace) that strips away unnecessary clutter so students can focus purely on learning.
+* **Value-First UI:** Designing a dual-page system (`/` for story/landing, `/go` for workspace) with subtle tactile hover states and paper typography.
 * **Context Preservation:** Crafting a system prompt that generates effective, accurate real-world analogies instead of flat, robotic translations.
 
 ---
 
 ## What we learned
-* How to design cohesive, multi-route layouts with lightweight CSS grid styling and Tailwind utilities.
+* How to combine dynamic DOM mouse tracking with CSS radial gradients for smooth spotlight effects.
+* How to build scalable CSS transition physics for interactive card elevation (`hover-float`).
 * How to construct and register PWA manifests and service workers for cross-platform web installation.
-* How to manage local storage states for secure client-side API key handling without backend overhead.
 
 ---
 

@@ -42,15 +42,38 @@
             background-image: radial-gradient(#CBD5E1 0.75px, transparent 0.75px);
             background-size: 16px 16px;
             color: #101E36;
+            cursor: crosshair;
         }
         .glass-nav {
             background: rgba(247, 246, 240, 0.9);
             backdrop-filter: blur(8px);
             border-bottom: 1px solid #E2E8F0;
         }
+        #cursor-aura {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            pointer-events: none;
+            background: radial-gradient(circle, rgba(16, 30, 54, 0.08) 0%, rgba(37, 99, 235, 0.04) 45%, transparent 70%);
+            transform: translate(-50%, -50%);
+            transition: transform 0.05s ease-out;
+            z-index: 9999;
+            mix-blend-mode: multiply;
+        }
+        .hover-float {
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+        }
+        .hover-float:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 24px -10px rgba(16, 30, 54, 0.1);
+        }
     </style>
 </head>
 <body class="antialiased flex flex-col min-h-screen selection:bg-ink selection:text-white font-sans">
+    <div id="cursor-aura"></div>
 
     <nav class="fixed w-full top-0 z-50 glass-nav">
         <div class="max-w-5xl mx-auto px-6 h-20 flex items-center justify-between">
@@ -71,13 +94,13 @@
                 <a href="#tech-stack" class="hover:text-ink transition">Architecture</a>
                 <a href="#next" class="hover:text-ink transition">Roadmap</a>
                 
-                <a href="https://tanzeemrockz.github.io/LangSlayer/go/" class="bg-ink text-white px-5 py-2.5 border border-ink hover:bg-transparent hover:text-ink transition shadow-sm">
+                <a href="https://tanzeemrockz.github.io/LangSlayer/go/" class="bg-ink text-white px-5 py-2.5 border border-ink hover:bg-transparent hover:text-ink transition shadow-sm hover-float">
                     TRY NOW
                 </a>
             </div>
             
             <div class="md:hidden flex items-center gap-3">
-                <a href="./go/" class="text-xs font-bold bg-ink text-white px-4 py-2 border border-ink">TRY NOW</a>
+                <a href="https://tanzeemrockz.github.io/LangSlayer/go/" class="text-xs font-bold bg-ink text-white px-4 py-2 border border-ink">TRY NOW</a>
             </div>
         </div>
     </nav>
@@ -99,7 +122,7 @@
             </div>
             
             <div>
-                <a href="/go/index.html" class="inline-block font-bold text-xs tracking-widest uppercase bg-ink text-white px-8 py-4 border border-ink hover:bg-transparent hover:text-ink transition shadow-sm">
+                <a href="https://tanzeemrockz.github.io/LangSlayer/go/" class="inline-block font-bold text-xs tracking-widest uppercase bg-ink text-white px-8 py-4 border border-ink hover:bg-transparent hover:text-ink transition shadow-sm hover-float">
                     TRY NOW →
                 </a>
             </div>
@@ -107,7 +130,7 @@
     </section>
 
     <section id="inspiration" class="max-w-4xl mx-auto px-6 py-20">
-        <div class="border border-line bg-card p-8 md:p-12 shadow-sm space-y-6 relative">
+        <div class="border border-line bg-card p-8 md:p-12 shadow-sm space-y-6 relative hover-float">
             <div class="text-center space-y-2">
                 <p class="text-xs font-semibold tracking-[0.2em] uppercase text-subtle">THE ORIGIN</p>
                 <p class="text-xs text-subtle">◇ ◆ ◇</p>
@@ -133,7 +156,7 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="border border-line bg-card p-6 space-y-3 relative">
+            <div class="border border-line bg-card p-6 space-y-3 relative hover-float">
                 <div class="text-xs text-subtle font-mono">01.</div>
                 <h3 class="font-bold text-sm uppercase tracking-wider text-ink">2-Sentence Summaries</h3>
                 <p class="text-xs text-subtle leading-relaxed">
@@ -141,7 +164,7 @@
                 </p>
             </div>
 
-            <div class="border border-line bg-card p-6 space-y-3 relative">
+            <div class="border border-line bg-card p-6 space-y-3 relative hover-float">
                 <div class="text-xs text-subtle font-mono">02.</div>
                 <h3 class="font-bold text-sm uppercase tracking-wider text-ink">Real-World Analogies</h3>
                 <p class="text-xs text-subtle leading-relaxed">
@@ -149,7 +172,7 @@
                 </p>
             </div>
 
-            <div class="border border-line bg-card p-6 space-y-3 relative">
+            <div class="border border-line bg-card p-6 space-y-3 relative hover-float">
                 <div class="text-xs text-subtle font-mono">03.</div>
                 <h3 class="font-bold text-sm uppercase tracking-wider text-ink">Instant Inference</h3>
                 <p class="text-xs text-subtle leading-relaxed">
@@ -166,19 +189,19 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-sans">
-            <div class="border border-line bg-card p-5 space-y-1">
+            <div class="border border-line bg-card p-5 space-y-1 hover-float">
                 <span class="font-bold uppercase text-ink">Frontend Shell</span>
                 <p class="text-subtle">Vite, Vanilla JavaScript, and HTML5 styled with Tailwind CSS for clean editorial readability.</p>
             </div>
-            <div class="border border-line bg-card p-5 space-y-1">
+            <div class="border border-line bg-card p-5 space-y-1 hover-float">
                 <span class="font-bold uppercase text-ink">PWA Engine</span>
                 <p class="text-subtle">Web App Manifests and service worker logic allowing installation natively on mobile or desktop devices.</p>
             </div>
-            <div class="border border-line bg-card p-5 space-y-1">
+            <div class="border border-line bg-card p-5 space-y-1 hover-float">
                 <span class="font-bold uppercase text-ink">AI Model Integration</span>
                 <p class="text-subtle">Open-source models (<code class="bg-paper px-1 py-0.5 border border-line">openai/gpt-oss-20b</code>) via Groq API using a BYOK model.</p>
             </div>
-            <div class="border border-line bg-card p-5 space-y-1">
+            <div class="border border-line bg-card p-5 space-y-1 hover-float">
                 <span class="font-bold uppercase text-ink">Dynamic Rendering</span>
                 <p class="text-subtle">Integrated <code class="bg-paper px-1 py-0.5 border border-line">marked.js</code> to parse raw AI completions into clean HTML.</p>
             </div>
@@ -192,22 +215,21 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
-            <div class="border border-line bg-card p-5 space-y-2">
+            <div class="border border-line bg-card p-5 space-y-2 hover-float">
                 <span class="font-bold uppercase text-ink block">Interactive Glossary</span>
                 <p class="text-subtle leading-relaxed">Clickable technical terms with instant hover popups providing one-line definitions.</p>
             </div>
-            <div class="border border-line bg-card p-5 space-y-2">
+            <div class="border border-line bg-card p-5 space-y-2 hover-float">
                 <span class="font-bold uppercase text-ink block">Preset Sample Chips</span>
                 <p class="text-subtle leading-relaxed">One-click test samples (AP Bio, Quantum Physics, Law) for instant evaluation.</p>
             </div>
-            <div class="border border-line bg-card p-5 space-y-2">
+            <div class="border border-line bg-card p-5 space-y-2 hover-float">
                 <span class="font-bold uppercase text-ink block">Side-by-Side Translation</span>
                 <p class="text-subtle leading-relaxed">Displaying simplified English alongside optional regional language translations.</p>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="mt-auto bg-card py-8 px-6 border-t border-line text-center text-xs text-subtle">
         <div class="max-w-4xl mx-auto space-y-2">
             <p>© 2026 LANGSLAYER — ALL RIGHTS RESERVED</p>
@@ -218,5 +240,13 @@
         </div>
     </footer>
 
+    <script>
+        const aura = document.getElementById('cursor-aura');
+
+        window.addEventListener('mousemove', (e) => {
+            aura.style.left = `${e.clientX}px`;
+            aura.style.top = `${e.clientY}px`;
+        });
+    </script>
 </body>
 </html>

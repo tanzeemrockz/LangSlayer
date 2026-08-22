@@ -4,6 +4,9 @@
 > A fast, lightweight PWA designed to convert dense academic research and complex textbook excerpts into concise summaries and real-world analogies for non-native English speakers.
 
 ---
+### 📄 Project One-Pager & Slide Deck
+- [View Presentation Deck (PDF)](./LangSlayer%20Product%20Demo%20for%20Hackathon.pdf)
+- **Live Demo:** [https://tanzeemrockz.github.io/LangSlayer](https://tanzeemrockz.github.io/LangSlayer)
 
 ## Inspiration
 I looked at my friends **struggling** to understand concepts using textbooks. They needed somebody who could **teach** them concepts. Even to understand *simple concepts* like atomic structure, they *needed* someone to explain it because their English wasn't sufficient. 
